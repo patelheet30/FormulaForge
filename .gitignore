@@ -1,0 +1,11 @@
+/.vscode
+/fly.toml
+__pycache__/
+**/__pycache__
+*.py[cod]
+*.pyc
+
+.venv
+.env
+venv/
+
