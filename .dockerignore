@@ -1,5 +1,10 @@
 /venv
+venv/
+/.vscode
+/.git
 __pycache__/
 *.py[cod]
 *.pyc
 **/__pycache__
+
+.DS_Store
