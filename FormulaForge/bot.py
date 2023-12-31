@@ -28,7 +28,7 @@ client = arc.RESTClient(bot)
 
 @client.include
 @arc.slash_command(name="ping", description="Ping the bot.")
-async def ping_slash(ctx: arc.Context[arc.RESTClient]) -> None:
+async def ping_slash(ctx: arc.RESTContext) -> None:
     await ctx.respond("Pong!")
 
 

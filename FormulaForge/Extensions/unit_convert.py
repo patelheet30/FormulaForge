@@ -9,7 +9,7 @@ from FormulaForge.utils.convert_temp import convert_temperature
 
 
 
-unit_converter = arc.RESTPlugin[arc.RESTClient]("unit_converter")
+unit_converter = arc.RESTPlugin("unit_converter")
 
 unit_convert_group = unit_converter.include_slash_group("unit_convert", "Unit Converter Commands. (Temperature, Speed, Mass, Energy, Length)")
 
@@ -53,7 +53,7 @@ def embed_builder(value, from_unit, to_unit, converted_value):
 @unit_convert_group.include
 @arc.slash_subcommand(name="temperature", description="Convert temperature.")
 async def temperature(
-    ctx: arc.Context[arc.RESTClient],
+    ctx: arc.RESTContext,
     temperature: arc.Option[
         float,
         arc.FloatParams(
@@ -84,7 +84,7 @@ async def temperature(
 @unit_convert_group.include
 @arc.slash_subcommand(name="speed", description="Convert speed.")
 async def speed(
-    ctx: arc.Context[arc.RESTClient],
+    ctx: arc.RESTContext,
     speed: arc.Option[
         float,
         arc.FloatParams(
@@ -115,7 +115,7 @@ async def speed(
 @unit_convert_group.include
 @arc.slash_subcommand(name="mass", description="Convert mass.")
 async def mass(
-    ctx: arc.Context[arc.RESTClient],
+    ctx: arc.RESTContext,
     mass: arc.Option[
         float,
         arc.FloatParams(
@@ -146,7 +146,7 @@ async def mass(
 @unit_convert_group.include
 @arc.slash_subcommand(name="energy", description="Convert energy.")
 async def energy(
-    ctx: arc.Context[arc.RESTClient],
+    ctx: arc.RESTContext,
     energy: arc.Option[
         float,
         arc.FloatParams(
@@ -177,7 +177,7 @@ async def energy(
 @unit_convert_group.include
 @arc.slash_subcommand(name="length", description="Convert length.")
 async def length(
-    ctx: arc.Context[arc.RESTClient],
+    ctx: arc.RESTContext,
     length: arc.Option[
         float,
         arc.FloatParams(

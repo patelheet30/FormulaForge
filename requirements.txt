@@ -1,9 +1,9 @@
 aiohttp==3.9.1
 certifi==2023.11.17
+fastapi==0.108.0
 hikari[server]==2.0.0.dev122
-hikari-arc @ git+https://github.com/hypergonial/hikari-arc@d9ec882e30f1522eddbd59b9f3a077122e77f212
+hikari-arc @ git+https://github.com/hypergonial/hikari-arc@beb023a396c8bb42c1d32a1f1ef06df6e0dad815
 hikari-miru @ git+https://github.com/hypergonial/hikari-miru.git@7e706d0894a02e5837ec817d66bc385024c62b09
+matplotlib==3.8.2
 python-dotenv==1.0.0
 uvicorn==0.25.0
-fastapi==0.108.0
-matplotlib==3.8.2

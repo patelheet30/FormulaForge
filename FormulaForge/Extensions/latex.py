@@ -10,12 +10,12 @@ from FormulaForge.Models.url import (URLBuilder,
 
 
 
-latex_images = arc.RESTPlugin[arc.RESTClient]("latex_images")
+latex_images = arc.RESTPlugin("latex_images")
 
 @latex_images.include
 @arc.slash_command(name="latex_to_image", description="Convert LaTeX (Math Mode) to an image.")
 async def latex_to_image(
-    ctx: arc.Context[arc.RESTClient],
+    ctx: arc.RESTContext,
     is_transparent: arc.Option[
         bool,
         arc.BoolParams(
