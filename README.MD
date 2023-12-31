@@ -1,5 +1,7 @@
 # FormulaForge
 
+You can invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=1189919185120276502&permissions=274877958144&scope=bot)
+
 ## Description
 This project was developed to test [hikari-arc](https://github.com/hypergonial/hikari-arc) and its RESTClient.
 It converts LaTeX's Math Mode code into images using a custom [API](https://github.com/patelheet30/FormulaForge/tree/main/API).
