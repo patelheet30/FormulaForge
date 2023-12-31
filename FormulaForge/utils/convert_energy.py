@@ -5,7 +5,7 @@ def convert_energy(
 ) -> float:
     """
     Converts energy from one unit to another. (Joules, Calories, Foot-Pound, Electronvolts)
-    
+
     Parameters
     ----------
     energy : float
@@ -14,20 +14,20 @@ def convert_energy(
         The unit to convert from.
     to_unit : str
         The unit to convert to.
-        
+
     Returns
     -------
     float
         The converted energy.
     """
-    
+
     if from_unit == "Joules":
         if to_unit == "Calories":
             converted_energy = energy * 0.239006
         elif to_unit == "Foot-Pound":
             converted_energy = energy * 0.737562
         elif to_unit == "Electronvolts":
-            converted_energy = energy * 6.2415e+18
+            converted_energy = energy * 6.2415e18
         else:
             converted_energy = energy
     elif from_unit == "Calories":
@@ -36,7 +36,7 @@ def convert_energy(
         elif to_unit == "Foot-Pound":
             converted_energy = energy * 3.08596
         elif to_unit == "Electronvolts":
-            converted_energy = energy * 2.6132e+19
+            converted_energy = energy * 2.6132e19
         else:
             converted_energy = energy
     elif from_unit == "Foot-Pound":
@@ -45,7 +45,7 @@ def convert_energy(
         elif to_unit == "Calories":
             converted_energy = energy * 0.324048
         elif to_unit == "Electronvolts":
-            converted_energy = energy * 8.462e+18
+            converted_energy = energy * 8.462e18
         else:
             converted_energy = energy
     else:
@@ -57,5 +57,5 @@ def convert_energy(
             converted_energy = energy * 1.1817e-19
         else:
             converted_energy = energy
-    
+
     return converted_energy

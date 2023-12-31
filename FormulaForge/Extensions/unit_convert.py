@@ -8,10 +8,12 @@ from FormulaForge.utils.convert_speed import convert_speed
 from FormulaForge.utils.convert_temp import convert_temperature
 
 
-
 unit_converter = arc.RESTPlugin("unit_converter")
 
-unit_convert_group = unit_converter.include_slash_group("unit_convert", "Unit Converter Commands. (Temperature, Speed, Mass, Energy, Length)")
+unit_convert_group = unit_converter.include_slash_group(
+    "unit_convert",
+    "Unit Converter Commands. (Temperature, Speed, Mass, Energy, Length)",
+)
 
 dict_of_unit_symbols = {
     "Celsius": "°C",
@@ -36,6 +38,7 @@ dict_of_unit_symbols = {
     "Inches": "in",
     "Nautical Miles": "nmi",
 }
+
 
 def get_unit_symbol(unit: str) -> str:
     return dict_of_unit_symbols[unit]
@@ -78,8 +81,15 @@ async def temperature(
         ),
     ],
 ) -> None:
-    await ctx.respond(embed=embed_builder(temperature, from_unit, to_unit, convert_temperature(temperature, from_unit, to_unit)))
-    
+    await ctx.respond(
+        embed=embed_builder(
+            temperature,
+            from_unit,
+            to_unit,
+            convert_temperature(temperature, from_unit, to_unit),
+        )
+    )
+
 
 @unit_convert_group.include
 @arc.slash_subcommand(name="speed", description="Convert speed.")
@@ -97,7 +107,12 @@ async def speed(
         arc.StrParams(
             name="from_unit",
             description="The unit to convert from.",
-            choices=["Meters Per Second", "Kilometers Per Hour", "Miles Per Hour", "Knots"],
+            choices=[
+                "Meters Per Second",
+                "Kilometers Per Hour",
+                "Miles Per Hour",
+                "Knots",
+            ],
         ),
     ],
     to_unit: arc.Option[
@@ -105,11 +120,20 @@ async def speed(
         arc.StrParams(
             name="to_unit",
             description="The unit to convert to.",
-            choices=["Meters Per Second", "Kilometers Per Hour", "Miles Per Hour", "Knots"],
+            choices=[
+                "Meters Per Second",
+                "Kilometers Per Hour",
+                "Miles Per Hour",
+                "Knots",
+            ],
         ),
     ],
 ) -> None:
-    await ctx.respond(embed=embed_builder(speed, from_unit, to_unit, convert_speed(speed, from_unit, to_unit)))
+    await ctx.respond(
+        embed=embed_builder(
+            speed, from_unit, to_unit, convert_speed(speed, from_unit, to_unit)
+        )
+    )
 
 
 @unit_convert_group.include
@@ -140,7 +164,11 @@ async def mass(
         ),
     ],
 ) -> None:
-    await ctx.respond(embed=embed_builder(mass, from_unit, to_unit, convert_mass(mass, from_unit, to_unit)))
+    await ctx.respond(
+        embed=embed_builder(
+            mass, from_unit, to_unit, convert_mass(mass, from_unit, to_unit)
+        )
+    )
 
 
 @unit_convert_group.include
@@ -171,7 +199,11 @@ async def energy(
         ),
     ],
 ) -> None:
-    await ctx.respond(embed=embed_builder(energy, from_unit, to_unit, convert_energy(energy, from_unit, to_unit)))
+    await ctx.respond(
+        embed=embed_builder(
+            energy, from_unit, to_unit, convert_energy(energy, from_unit, to_unit)
+        )
+    )
 
 
 @unit_convert_group.include
@@ -202,12 +234,17 @@ async def length(
         ),
     ],
 ) -> None:
-    await ctx.respond(embed=embed_builder(length, from_unit, to_unit, convert_length(length, from_unit, to_unit)))
+    await ctx.respond(
+        embed=embed_builder(
+            length, from_unit, to_unit, convert_length(length, from_unit, to_unit)
+        )
+    )
 
 
 @arc.loader
 def load(client: arc.RESTClient) -> None:
     client.add_plugin(unit_converter)
+
 
 @arc.unloader
 def unload(client: arc.RESTClient) -> None:

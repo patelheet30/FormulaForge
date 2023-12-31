@@ -5,7 +5,7 @@ def convert_length(
 ) -> float:
     """
     Converts length from one unit to another. (Meters, Yards, Feet, Miles, Inches, Nautical Miles)
-    
+
     Parameters
     ----------
     length : float
@@ -14,13 +14,13 @@ def convert_length(
         The unit to convert from.
     to_unit : str
         The unit to convert to.
-        
+
     Returns
     -------
     float
         The converted length.
     """
-    
+
     if from_unit == "Meters":
         if to_unit == "Yards":
             converted_length = length * 1.09361
@@ -99,5 +99,5 @@ def convert_length(
             converted_length = length * 72913.4
         else:
             converted_length = length
-            
+
     return converted_length

@@ -5,7 +5,7 @@ def convert_mass(
 ) -> float:
     """
     Converts mass from one unit to another. (Kilograms, Grams, Pounds, Ounces)
-    
+
     Parameters
     ----------
     mass : float
@@ -14,13 +14,13 @@ def convert_mass(
         The unit to convert from.
     to_unit : str
         The unit to convert to.
-        
+
     Returns
     -------
     float
         The converted mass.
     """
-    
+
     if from_unit == "Kilograms":
         if to_unit == "Grams":
             converted_mass = mass * 1000
@@ -57,5 +57,5 @@ def convert_mass(
             converted_mass = mass / 16
         else:
             converted_mass = mass
-    
+
     return converted_mass

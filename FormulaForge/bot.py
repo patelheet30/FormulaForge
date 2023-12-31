@@ -6,17 +6,15 @@ import miru
 
 
 class MyModal(miru.Modal[miru.REST]):
-    
     formula = miru.TextInput[miru.REST](
         label="Formula",
         placeholder="Remember to add $ in Math Mode https://www1.cmc.edu/pages/faculty/aaksoy/latex/latexthree.html",
         required=True,
         style=hikari.TextInputStyle.PARAGRAPH,
     )
-    
+
     async def callback(self, context: miru.ModalContext[miru.REST]) -> None:
         await context.respond("Processing...")
-
 
 
 TOKEN = os.environ["TOKEN"]

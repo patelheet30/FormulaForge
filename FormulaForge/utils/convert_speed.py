@@ -5,7 +5,7 @@ def convert_speed(
 ) -> float:
     """
     Converts speed from one unit to another. (Kilometers per hour, Miles per hour, Meters per second, Knots)
-    
+
     Parameters
     ----------
     speed : float
@@ -14,13 +14,13 @@ def convert_speed(
         The unit to convert from.
     to_unit : str
         The unit to convert to.
-        
+
     Returns
     -------
     float
         The converted speed.
     """
-    
+
     if from_unit == "Kilometers per hour":
         if to_unit == "Miles per hour":
             converted_speed = speed * 0.621371
@@ -57,5 +57,5 @@ def convert_speed(
             converted_speed = speed * 0.514444
         else:
             converted_speed = speed
-    
+
     return converted_speed
