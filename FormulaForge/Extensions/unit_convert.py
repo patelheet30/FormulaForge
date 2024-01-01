@@ -8,7 +8,7 @@ from FormulaForge.utils.convert_speed import convert_speed
 from FormulaForge.utils.convert_temp import convert_temperature
 
 
-unit_converter = arc.RESTPlugin("unit_converter")
+unit_converter = arc.GatewayPlugin("unit_converter")
 
 unit_convert_group = unit_converter.include_slash_group(
     "unit_convert",
@@ -56,7 +56,7 @@ def embed_builder(value, from_unit, to_unit, converted_value):
 @unit_convert_group.include
 @arc.slash_subcommand(name="temperature", description="Convert temperature.")
 async def temperature(
-    ctx: arc.RESTContext,
+    ctx: arc.GatewayContext,
     temperature: arc.Option[
         float,
         arc.FloatParams(
@@ -94,7 +94,7 @@ async def temperature(
 @unit_convert_group.include
 @arc.slash_subcommand(name="speed", description="Convert speed.")
 async def speed(
-    ctx: arc.RESTContext,
+    ctx: arc.GatewayContext,
     speed: arc.Option[
         float,
         arc.FloatParams(
@@ -139,7 +139,7 @@ async def speed(
 @unit_convert_group.include
 @arc.slash_subcommand(name="mass", description="Convert mass.")
 async def mass(
-    ctx: arc.RESTContext,
+    ctx: arc.GatewayContext,
     mass: arc.Option[
         float,
         arc.FloatParams(
@@ -174,7 +174,7 @@ async def mass(
 @unit_convert_group.include
 @arc.slash_subcommand(name="energy", description="Convert energy.")
 async def energy(
-    ctx: arc.RESTContext,
+    ctx: arc.GatewayContext,
     energy: arc.Option[
         float,
         arc.FloatParams(
@@ -209,7 +209,7 @@ async def energy(
 @unit_convert_group.include
 @arc.slash_subcommand(name="length", description="Convert length.")
 async def length(
-    ctx: arc.RESTContext,
+    ctx: arc.GatewayContext,
     length: arc.Option[
         float,
         arc.FloatParams(
@@ -242,10 +242,10 @@ async def length(
 
 
 @arc.loader
-def load(client: arc.RESTClient) -> None:
+def load(client: arc.GatewayClient) -> None:
     client.add_plugin(unit_converter)
 
 
 @arc.unloader
-def unload(client: arc.RESTClient) -> None:
+def unload(client: arc.GatewayClient) -> None:
     client.remove_plugin(unit_converter)

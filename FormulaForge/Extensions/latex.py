@@ -8,7 +8,7 @@ from FormulaForge.bot import modal_client
 from FormulaForge.Models.url import URLBuilder, convert_new_line_to_url_encoding
 
 
-latex_images = arc.RESTPlugin("latex_images")
+latex_images = arc.GatewayPlugin("latex_images")
 
 
 @latex_images.include
@@ -16,7 +16,7 @@ latex_images = arc.RESTPlugin("latex_images")
     name="latex_to_image", description="Convert LaTeX (Math Mode) to an image."
 )
 async def latex_to_image(
-    ctx: arc.RESTContext,
+    ctx: arc.GatewayContext,
     is_transparent: arc.Option[
         bool,
         arc.BoolParams(
@@ -105,10 +105,10 @@ async def latex_to_image(
 
 
 @arc.loader
-def load(client: arc.RESTClient) -> None:
+def load(client: arc.GatewayClient) -> None:
     client.add_plugin(latex_images)
 
 
 @arc.unloader
-def unload(client: arc.RESTClient) -> None:
+def unload(client: arc.GatewayClient) -> None:
     client.remove_plugin(latex_images)

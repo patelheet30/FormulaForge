@@ -19,5 +19,5 @@ class URLBuilder:
 
 
 def convert_new_line_to_url_encoding(formula_without_newline_encoding: str) -> str:
-    """Converts \n to %0A"""
+    """Converts newline to %0A which is the URL encoding for newline."""
     return formula_without_newline_encoding.replace("\n", "%0A")
